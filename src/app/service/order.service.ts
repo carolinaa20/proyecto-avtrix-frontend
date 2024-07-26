@@ -7,7 +7,7 @@ import { User } from '../models/User.model';
   providedIn: 'root',
 })
 export class OrderService {
-  private apiUrl = 'http://localhost:3000/api';
+  private apiUrl = 'http://18.221.16.152:3000/api';
   constructor(private http: HttpClient) {}
 
   getOrdersByUser(userId: string): Observable<any> {
