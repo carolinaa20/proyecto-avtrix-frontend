@@ -1,0 +1,181 @@
+/* ====================
+  - General Styles
+==================== */
+.placeholder {
+  background-color: grey;
+  border-radius: 6px;
+}
+
+.loader-nav {
+  border: 1px solid grey;
+  height: 85px;
+  margin: 5px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+/* ====================
+  - Product Styles
+==================== */
+.product {
+  display: grid;
+  grid-template-areas:
+    "a b c"
+    "a b c";
+  grid-template-columns: 2fr 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  position: relative;
+  width: 100%;
+  gap: 5px;
+  margin-bottom: 25px;
+}
+
+.product .image {
+  grid-area: a;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product .image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  aspect-ratio: 1;
+}
+
+.product .detail {
+  grid-area: b;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+}
+
+.product .actions {
+  grid-area: c;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product .actions .material-symbols-outlined:hover {
+  color: rgb(204, 204, 204);
+}
+
+.product .actions button,
+.product .actions input {
+  background: none;
+  border: none;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product .actions form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.product .actions form input {
+  width: 2rem;
+  text-align: center;
+}
+
+.product .actions form button.increment,
+.product .actions form button.decrement {
+  width: 1.6rem;
+  aspect-ratio: 1 / 1;
+}
+
+.delete-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.block {
+  border-radius: 16px;
+  position: relative;
+  width: 280px;
+  background: linear-gradient(0deg, #000, #262626);
+}
+
+.shadow:hover::before,
+.shadow:hover::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  background: linear-gradient(
+    45deg,
+    #fb00c9,
+    #0ef,
+    #d90000,
+    #fb00c9,
+    #0ef,
+    #d90000
+  );
+  background-size: 400%;
+  border-radius: 16px;
+  z-index: -1;
+  animation: shadow 20s linear infinite;
+  transition: all 1s ease-in-out;
+}
+
+.shadow:hover::after {
+  top: -8px;
+  left: -8px;
+  width: calc(100% + 16px);
+  height: calc(100% + 16px);
+  filter: blur(24px);
+  opacity: 0.9;
+  transition: all 1s ease-in-out;
+}
+
+@keyframes shadow {
+  0% {
+    background-position: 0 0;
+  }
+  50.01% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* ====================
+  - Media Queries
+==================== */
+@media screen and (max-width: 992px) {
+  /* Add responsive styles here if needed */
+}
+
+@media screen and (max-width: 768px) {
+  .section-text-combo p {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  html {
+    font-size: 18px;
+  }
+  .section-text-combo p {
+    width: 100%;
+  }
+}

@@ -1,0 +1,29 @@
+<app-nav />
+<main>
+    <section class="payment text-white">
+        <h2>Detalles del pago</h2>
+        <form action="" (submit)="onSubmit()" [formGroup]="paymentDetails">
+            <div class="formGroup">
+                <label for="CardNumber">Card Number</label>
+                <input type="text" name="CardNumber" id="CardNumber" formControlName="CardNumber">
+            </div>
+            <div class="formGroup">
+                <label for="paymentMethod">Payment Method</label>
+                <select name="paymentMethod" id="paymentMethod" formControlName="paymentMethod">
+                    @for(paymentMethod of paymentMethods(); track paymentMethod._id){
+                    <option [value]="paymentMethod._id">{{ paymentMethod.name }}</option>
+                    }
+                </select>
+            </div>
+            <button route type="submit">Realizar compra</button>
+        </form>
+    </section>
+    <section class="cart text-white">
+        <h3>Total:&nbsp;
+            <span> {{ total() | currency}}</span>
+        </h3>
+        @for(cartProduct of cart().values(); track cartProduct._id){
+        <app-card-cart [videogame]="cartProduct" />
+        }
+    </section>
+</main>

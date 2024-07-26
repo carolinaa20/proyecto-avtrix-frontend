@@ -1,0 +1,39 @@
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+::selection {
+  background-color: aqua;
+  color: black;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #242526;
+}
+::-webkit-scrollbar-thumb {
+  background: #3a3b3c;
+}
+
+@media screen and (max-width: 992px) {
+}
+
+@media screen and (max-width: 768px) {
+  .section-text-combo p {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  html {
+    font-size: 18px;
+  }
+  .section-text-combo p {
+    width: 100%;
+  }
+}
