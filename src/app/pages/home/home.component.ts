@@ -56,12 +56,12 @@ export class HomeComponent {
     });
     this.videogamesService.getVideogamesOfFeatured().subscribe({
       next: (videogames: any) => {
-        this.featuredvideogames.set(videogames.data.slice(0, 20));
+        this.featuredvideogames.set(videogames.slice(0, 20));
       },
     });
     this.videogamesService.getVideogamesOfOnSale().subscribe({
       next: (videogames: any) => {
-        this.onsalevideogames.set(videogames.data.slice(0, 10));
+        this.onsalevideogames.set(videogames.slice(0, 10));
       },
     });
   }

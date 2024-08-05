@@ -149,7 +149,7 @@
         loop="true" navigation="true" space-between="-65">
         @for(videogame of featuredvideogames(); track videogame._id){
         <swiper-slide>
-          <app-cards [id]="videogame._id" [name]="videogame.name" [price]="videogame.price" [cover]="videogame.cover" />
+          <app-cards [id]="videogame._id" [name]="videogame.name" [price]="videogame.price" [cover]="videogame.image" />
         </swiper-slide>
         }
       </swiper-container>
@@ -166,8 +166,7 @@
           loop="true" navigation="true">
           @for(videogame of onsalevideogames(); track videogame._id){
           <swiper-slide>
-            <app-cards [id]="videogame._id" [name]="videogame.name" [price]="videogame.price"
-              [cover]="videogame.cover" />
+            <app-cards [id]="videogame._id" [name]="videogame.name" [price]="videogame.price" [cover]="videogame.image" />
           </swiper-slide>
           }
 

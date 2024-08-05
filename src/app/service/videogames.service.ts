@@ -11,28 +11,28 @@ export class VideogamesService {
   constructor() {}
 
   getVideogames() {
-    return this.http.get('http://18.221.16.152:3000/api/videogame');
+    return this.http.get('http://localhost:3000/videogames');
   }
 
-  private apiUrl = 'http://18.221.16.152:3000/api/videogame';
+  private apiUrl = 'http://localhost:3000/videogames';
 
   getVideogamesPages(page: number, limit: number) {
     return this.http.get<any>(`${this.apiUrl}?page=${page}&limit=${limit}`);
   }
 
   getOneVideogameByName(id: string) {
-    return this.http.get('http://18.221.16.152:3000/api/videogamebyid/' + id);
+    return this.http.get('http://localhost:3000/videogamebyid/' + id);
   }
 
   getVideogamesOfFeatured() {
     return this.http.get(
-      'http://18.221.16.152:3000/api/videogame?typeoffer=Featured'
+      'http://localhost:3000/videogames?typeoffer=Featured'
     );
   }
 
   getVideogamesOfOnSale() {
     return this.http.get(
-      'http://18.221.16.152:3000/api/videogame?typeoffer=On Sale'
+      'http://localhost:3000/videogames?typeoffer=On Sale'
     );
   }
 }
