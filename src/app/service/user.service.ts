@@ -14,19 +14,19 @@ export class UserService {
   getUserById(id: string): Observable<any> {
     const token = localStorage.getItem('user_token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.get<User[]>('http://localhost:3000/users/' + id, {
+    return this.http.get<User[]>('http://localhost:3000/api/users/' + id, {
       headers,
     });
   }
 
   getRol() {
-    return this.http.get<Rol[]>('http://localhost:3000/rol');
+    return this.http.get<Rol[]>('http://localhost:3000/api/rol');
   }
 
   updateUser(id: string, data: User) {
     const token = localStorage.getItem('user_token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.patch('http://localhost:3000/users/' + id, data, {
+    return this.http.patch('http://localhost:3000/api/users/' + id, data, {
       headers,
     });
   }

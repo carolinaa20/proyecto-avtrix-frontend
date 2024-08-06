@@ -54,21 +54,29 @@ export class VideogamelistComponent {
   loadVideogames() {
     this.videogamesService
       .getVideogamesPages(this.currentPage(), this.pageSize)
-      .subscribe((response) => {
-        if (Array.isArray(response)) {
-          const sortedVideogames = response.sort(
-            (a: Videogame, b: Videogame) => a.name.localeCompare(b.name)
-          );
-          this.videogames.set(sortedVideogames);
-          // Aquí no tienes `response.pagination.totalItems`, así que necesitas ajustar esta parte según cómo obtienes la paginación.
-        } else {
-          console.error('Unexpected response format', response);
+      .subscribe(
+        (response) => {
+          if (response && Array.isArray(response.data)) {
+            const sortedVideogames = response.data.sort(
+              (a: Videogame, b: Videogame) => a.name.localeCompare(b.name)
+            );
+            this.videogames.set(sortedVideogames);
+            // Ajusta la paginación según la estructura de tu respuesta
+            if (response.pagination && typeof response.pagination.totalItems === 'number') {
+              this.totalItems = response.pagination.totalItems;
+            } else {
+              console.warn('Pagination info missing in response', response);
+            }
+          } else {
+            console.error('Unexpected response format', response);
+          }
+        },
+        (error) => {
+          console.error('Error fetching videogames', error);
         }
-      },
-      (error) => {
-        console.error('Error fetching videogames', error);
-      });
+      );
   }
+
 
   onPageChange(page: number) {
     if (page > 0 && page <= this.totalPages()) {
