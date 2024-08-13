@@ -17,9 +17,9 @@ nav .wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: 15px;
-  box-shadow: 1px 15px 15px #deb277;
-  border: 1px solid #D2B48C;;
+  border-radius: 0px;
+  /*box-shadow: 1px 15px 15px #deb277;*/
+  border: 2px solid #D2B48C;;
 }
 
 .options {
