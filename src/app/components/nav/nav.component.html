@@ -1,6 +1,6 @@
 <nav>
   <div class="wrapper">
-    <div class="logo"><a routerLink="/home">CRAD</a></div>
+    <div class="logo"><a routerLink="/home">AVTRIX</a></div>
     <input type="radio" name="slider" id="menu-btn">
     <input type="radio" name="slider" id="close-btn">
 
@@ -97,7 +97,7 @@
           <span class="material-symbols-outlined">
             shopping_cart
           </span>
-          {{cart().size}}
+          {{gamesinngrx.length}}
         </button>
 
       </div>
@@ -110,12 +110,12 @@
 
   </div>
 </nav>
-
+<!-- @for(items of allproducts; track items.id){ -->
 <aside [ngClass]="showCart() ? 'cart show' : ''" class="cart">
   <div>
     <div>
       <h2>
-        Carrito {{cart().size}}
+        Carrito {{gamesinngrx.length}}
       </h2>
       <button class="close" (click)="toggleCartVisibility()">
         <span class="material-symbols-outlined">
@@ -125,7 +125,7 @@
     </div>
     <section class="cart-products">
       <div *ngIf="cart().size > 0" class="item-list">
-        <div *ngFor="let cartProduct of cart() | keyvalue; trackBy: trackById">
+        <div *ngFor="let cartProduct of gamesinngrx | keyvalue; trackBy: trackById">
           <app-card-cart [videogame]="cartProduct.value " />
         </div>
       </div>
@@ -133,7 +133,7 @@
     <div class="details">
       <div class="checkout-box">
         <h3>Total:&nbsp;
-          <span> {{ total() | currency}}</span>
+          <span> {{ totalinngrx | currency}}</span>
         </h3>
         <a routerLink="/checkout" class="checkout">checkout</a>
       </div>

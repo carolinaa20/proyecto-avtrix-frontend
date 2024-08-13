@@ -11,7 +11,11 @@ import { VideogamesService } from '../../service/videogames.service';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { SkeletonModule } from 'primeng/skeleton';
 import { register } from 'swiper/element/bundle';
-
+import { Store } from "@ngrx/store";
+import { increment } from "../../components/ngrx/cart.action";
+import { CartState } from '../../components/ngrx/stateModel';
+import { Videogame } from "../../models/videogame.models";
+import { cartReducer } from '../../components/ngrx/cart.Reducer';
 register();
 
 @Component({
@@ -31,6 +35,7 @@ register();
 })
 export class HomeComponent {
   private videogamesService = inject(VideogamesService);
+  // private store : Store
 
   videogames = signal<any>([]);
   featuredVideogames = signal<any>([]);
@@ -65,4 +70,7 @@ export class HomeComponent {
       },
     });
   }
+  // addToCart(product: Videogame){
+  //   this.store.dispatch(increment({product}))
+  // }
 }

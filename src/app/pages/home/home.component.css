@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 /* General Styles */
 .placeholder {
   background-color: grey;
@@ -37,10 +39,23 @@ main {
 - Hero Section
 ==================== */
 #hero {
-  height: 350px;
-  background-image: url("https://i.pinimg.com/originals/10/dd/02/10dd02f9476f82d05f17d88a31e3c80b.jpg");
+ 
+  background-image: url("https://html.nkdev.info/godlike/assets/images/image-1.jpg"); 
   background-size: cover;
   background-position: center;
+}
+.avtx{
+ text-align: center;
+ display: flex;
+            justify-content: center; /* Centra horizontalmente */
+            align-items: center;     /* Centra verticalmente */
+            height: 500px;
+            color: white;
+            text-align: center;
+            font-weight: 600;
+            font-family: "Marcellus SC", serif;
+            font-size: 80px;
+            opacity: 10px;
 }
 
 /* ====================

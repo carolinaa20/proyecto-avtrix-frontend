@@ -15,6 +15,8 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { SkeletonModule } from 'primeng/skeleton';
 import { CartService } from '../../service/cart.service';
 import { register } from 'swiper/element/bundle';
+import { Store } from '@ngrx/store';
+import { increment } from '../../components/ngrx/cart.action';
 
 register();
 
@@ -37,6 +39,7 @@ register();
 export class DetailComponent {
   private videogamesService = inject(VideogamesService);
   private cartService = inject(CartService);
+  private store=inject(Store)
 
   videogame = signal<any>({});
   videogames = signal<any>({});
@@ -81,5 +84,7 @@ export class DetailComponent {
 
   addToCart(videogame: any) {
     this.cartService.addToCart(videogame);
+    this.store.dispatch(increment({product:videogame}))
   }
+
 }

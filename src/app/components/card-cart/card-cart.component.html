@@ -10,7 +10,7 @@
     </div>
     <div class="actions">
 
-        <form action="">
+        <!-- <form action="">
             <button type="button" class="decrement" (click)="decrement(videogame._id)">
                 <span class="material-symbols-outlined">
                     remove
@@ -22,13 +22,14 @@
                     add
                 </span>
             </button>
-        </form>
+        </form> -->
         <div class="delete-button">
-            <button (click)="deleteToCart(videogame._id)">
+            <button (click)="removeGame(videogame._id, videogame.price)">
                 <span class="material-symbols-outlined">
                     delete
                 </span>
             </button>
         </div>
     </div>
+
 </article>

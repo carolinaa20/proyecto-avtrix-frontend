@@ -1,7 +1,9 @@
 export interface Videogame {
-  _id: string;
+  // it was _id
+  id: string;
   name: string;
-  price: string;
+  //it was type string, price
+  price: number;
   image: string;
   video: string;
   gamemode: string;

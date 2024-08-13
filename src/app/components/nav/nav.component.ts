@@ -7,7 +7,8 @@ import { CategoriesService } from '../../service/categories.service';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../../service/cart.service';
 import { CardCartComponent } from '../card-cart/card-cart.component';
-
+import { Store, select } from '@ngrx/store';
+import { AppState } from '../../app.state';
 @Component({
   selector: 'app-nav',
   standalone: true,
@@ -19,6 +20,7 @@ import { CardCartComponent } from '../card-cart/card-cart.component';
     FormsModule,
     CardCartComponent,
     CurrencyPipe,
+
   ],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css',
@@ -28,11 +30,12 @@ export class NavComponent {
   private authService = inject(AuthService);
   private categoriesService = inject(CategoriesService);
   private cartService = inject(CartService);
-
-  constructor(public router: Router) {}
+  constructor(public router: Router, private store: Store<AppState>) {}
   @Input() id: string = '';
   @Input() name: string = '';
 
+  gamesinngrx = [];
+  totalinngrx = 0;
   gamemodes = signal<any>([]);
   videogames = signal<any>([]);
   notAvailable = true;
@@ -66,7 +69,13 @@ export class NavComponent {
       next: (pegis) => {
         this.pegis.set(pegis);
       },
+      
     });
+    this.store.pipe(select('cartState')).subscribe((state: any) => {
+      this.gamesinngrx = state.products
+      this.totalinngrx= state.grandTotal
+      console.log(state)
+    })
   }
 
   goToProfile(): void {

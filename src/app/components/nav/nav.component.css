@@ -18,8 +18,8 @@ nav .wrapper {
   align-items: center;
   justify-content: space-between;
   border-radius: 15px;
-  box-shadow: 1px 1px 15px cyan;
-  border: 1px solid cyan;
+  box-shadow: 1px 15px 15px #deb277;
+  border: 1px solid #D2B48C;;
 }
 
 .options {
