@@ -15,7 +15,6 @@ import { Store } from "@ngrx/store";
 import { increment } from "../../components/ngrx/cart.action";
 import { CartState } from '../../components/ngrx/stateModel';
 import { Videogame } from "../../models/videogame.models";
-import { cartReducer } from '../../components/ngrx/cart.Reducer';
 register();
 
 @Component({

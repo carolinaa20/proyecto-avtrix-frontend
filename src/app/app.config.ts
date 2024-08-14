@@ -7,7 +7,7 @@ import {
 import { provideHttpClient } from '@angular/common/http';
 import { routes } from './app.routes';
 import { provideState, provideStore } from '@ngrx/store';
-import { cartReducer } from './components/ngrx/cart.Reducer';
+import { cartReducer } from '../app/components/ngrx/cart.reducer';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(
